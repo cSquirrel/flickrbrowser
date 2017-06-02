@@ -21,6 +21,7 @@ class FeedItemsTableViewController: UITableViewController {
     
     var flickrFeed: BehaviorSubject<[FlickFeedItemViewModel]> = BehaviorSubject(value: Array())
     private let disposeBag = DisposeBag()
+    fileprivate let spinnerView = LoadingSpinnerView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +58,7 @@ class FeedItemsTableViewController: UITableViewController {
     
     private func loadFeed() {
         
+        spinnerView.show(inView: self.view)
         let api = applicationConfiguration.apiAccess
         DispatchQueue.global(qos: .default).async { [weak self] in
             guard let strongSelf = self else { return }
@@ -71,6 +73,7 @@ class FeedItemsTableViewController: UITableViewController {
     func apiSuccess(flickrFeed fi: FlickrFeed) {
         
         DispatchQueue.main.async { [weak self] in
+            self?.spinnerView.hide()
             self?.navigationItem.title = fi.title
         }
         
@@ -81,6 +84,7 @@ class FeedItemsTableViewController: UITableViewController {
     
     func apiFailure(error: Error?) {
         DispatchQueue.main.async { [weak self] in
+            self?.spinnerView.hide()
             let alert = UIAlertController(title: "ERROR", message: "Unable to fetch feed data", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self?.present(alert, animated: true, completion: nil)

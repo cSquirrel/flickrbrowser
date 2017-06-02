@@ -1,0 +1,21 @@
+platform :ios, '10.3'
+use_frameworks!
+
+def rx_SwiftPods
+  pod 'RxSwift',    '~> 3.0'
+  pod 'RxCocoa',    '~> 3.0'
+end
+
+target 'FlickrBrowser' do
+
+    rx_SwiftPods
+
+end
+
+
+target 'FlickrBrowserTests' do
+
+    rx_SwiftPods
+
+end
+

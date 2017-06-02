@@ -26,8 +26,12 @@
 		32D357D71EE11A5300573309 /* FlickrModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D357D51EE11A5300573309 /* FlickrModelTests.swift */; };
 		32D357D91EE11A8200573309 /* TestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D357D81EE11A8200573309 /* TestUtils.swift */; };
 		32D357DE1EE11BD400573309 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D357DB1EE11BD400573309 /* AppDelegate.swift */; };
-		32D357DF1EE11BD400573309 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D357DD1EE11BD400573309 /* ViewController.swift */; };
 		32D357E11EE11C1700573309 /* ApplicationConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D357E01EE11C1700573309 /* ApplicationConfiguration.swift */; };
+		32D357E61EE11C7F00573309 /* FeedItemCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D357E21EE11C7F00573309 /* FeedItemCellView.swift */; };
+		32D357E71EE11C7F00573309 /* FeedItemsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D357E31EE11C7F00573309 /* FeedItemsTableViewController.swift */; };
+		32D357E81EE11C7F00573309 /* FlickFeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D357E41EE11C7F00573309 /* FlickFeedViewModel.swift */; };
+		32D357E91EE11C7F00573309 /* FeedItemDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D357E51EE11C7F00573309 /* FeedItemDetailsViewController.swift */; };
+		32D357EB1EE11CA900573309 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D357EA1EE11CA900573309 /* UIImageView+Extensions.swift */; };
 		F389AA542102FD00B04973B1 /* Pods_FlickrBrowserTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4A08C9EC1AF540C1BCC2C60 /* Pods_FlickrBrowserTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,8 +78,12 @@
 		32D357D51EE11A5300573309 /* FlickrModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrModelTests.swift; sourceTree = "<group>"; };
 		32D357D81EE11A8200573309 /* TestUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestUtils.swift; sourceTree = "<group>"; };
 		32D357DB1EE11BD400573309 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		32D357DD1EE11BD400573309 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		32D357E01EE11C1700573309 /* ApplicationConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationConfiguration.swift; sourceTree = "<group>"; };
+		32D357E21EE11C7F00573309 /* FeedItemCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedItemCellView.swift; sourceTree = "<group>"; };
+		32D357E31EE11C7F00573309 /* FeedItemsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedItemsTableViewController.swift; sourceTree = "<group>"; };
+		32D357E41EE11C7F00573309 /* FlickFeedViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickFeedViewModel.swift; sourceTree = "<group>"; };
+		32D357E51EE11C7F00573309 /* FeedItemDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedItemDetailsViewController.swift; sourceTree = "<group>"; };
+		32D357EA1EE11CA900573309 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		75D365D35E14BA8646D52101 /* Pods-FlickrBrowser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickrBrowser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlickrBrowser/Pods-FlickrBrowser.debug.xcconfig"; sourceTree = "<group>"; };
 		8BF4E25955C6B5B5D5EF88B9 /* Pods-FlickrBrowserTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickrBrowserTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlickrBrowserTests/Pods-FlickrBrowserTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A7E346B0CDB5B27F07B97534 /* Pods-FlickrBrowserTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickrBrowserTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlickrBrowserTests/Pods-FlickrBrowserTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -228,6 +236,7 @@
 			children = (
 				32D357E01EE11C1700573309 /* ApplicationConfiguration.swift */,
 				32D357DB1EE11BD400573309 /* AppDelegate.swift */,
+				32D357EA1EE11CA900573309 /* UIImageView+Extensions.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -235,8 +244,11 @@
 		32D357DC1EE11BD400573309 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				32D357E21EE11C7F00573309 /* FeedItemCellView.swift */,
+				32D357E31EE11C7F00573309 /* FeedItemsTableViewController.swift */,
+				32D357E41EE11C7F00573309 /* FlickFeedViewModel.swift */,
+				32D357E51EE11C7F00573309 /* FeedItemDetailsViewController.swift */,
 				32D357931EE118D500573309 /* Main.storyboard */,
-				32D357DD1EE11BD400573309 /* ViewController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -492,10 +504,14 @@
 			files = (
 				32D357DE1EE11BD400573309 /* AppDelegate.swift in Sources */,
 				32D357C11EE1198700573309 /* DefaultServicesProvider.swift in Sources */,
+				32D357E81EE11C7F00573309 /* FlickFeedViewModel.swift in Sources */,
 				32D357C31EE1198700573309 /* NetworkServicesProvider.swift in Sources */,
-				32D357DF1EE11BD400573309 /* ViewController.swift in Sources */,
+				32D357E71EE11C7F00573309 /* FeedItemsTableViewController.swift in Sources */,
+				32D357E91EE11C7F00573309 /* FeedItemDetailsViewController.swift in Sources */,
+				32D357EB1EE11CA900573309 /* UIImageView+Extensions.swift in Sources */,
 				32D357CD1EE11A3600573309 /* FlickrModel.swift in Sources */,
 				32D357E11EE11C1700573309 /* ApplicationConfiguration.swift in Sources */,
+				32D357E61EE11C7F00573309 /* FeedItemCellView.swift in Sources */,
 				32D357CC1EE11A3600573309 /* FlickrAPI.swift in Sources */,
 				32D357C21EE1198700573309 /* NetworkOperationsExecutor.swift in Sources */,
 			);

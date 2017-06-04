@@ -35,6 +35,7 @@ struct FlickrAPIConfig {
     
 }
 
+// MARK: --
 public struct PublicPhotosAPIQuery {
     
     public static let empty = PublicPhotosAPIQuery()
@@ -83,6 +84,7 @@ public struct PublicPhotosAPIQuery {
     
 }
 
+// MARK: --
 public class FlickrAPI: NSObject {
 
     enum Const {
@@ -103,10 +105,10 @@ public class FlickrAPI: NSObject {
         
     }
     
-    public typealias ApiError = (_ error: Error?) -> ()
+    typealias ApiError = (_ error: Error?) -> ()
     
-    public typealias GetPublicPhotosResult = (_ flickrFeed: FlickrFeed) -> ()
-    public func getPublicPhotos(query:PublicPhotosAPIQuery,
+    typealias GetPublicPhotosResult = (_ flickrFeed: FlickrFeed) -> ()
+    func getPublicPhotos(query:PublicPhotosAPIQuery,
                                 result: @escaping GetPublicPhotosResult,
                                 error: @escaping ApiError) {
         
@@ -135,3 +137,5 @@ public class FlickrAPI: NSObject {
     }
 
 }
+
+

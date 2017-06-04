@@ -13,7 +13,7 @@ import RxCocoa
 class FeedItemDetailsViewController: UIViewController {
 
     private let disposeBag = DisposeBag()
-    var imagesProvider: ImagesProvider?
+    var imagesProvider: RxImagesProvider?
     var feedItem: FlickFeedItemViewModel! {
         didSet {
             feedItem.titleText.subscribe( onNext: { [weak self] (title:String) in
@@ -67,12 +67,15 @@ class FeedItemDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let imageURL = try? feedItem.imageURL.value() {
-            self.imagesProvider?(imageURL, { [weak self] (image:UIImage?) in
+        guard let imageURL = try? feedItem.imageURL.value() else {
+            return
+        }
+        
+        self.imagesProvider?(imageURL)
+            .subscribe(onNext:{ [weak self] image in
                 self?.pictureImageView.setImage(image)
             })
-        }
-
+            .disposed(by: disposeBag)
 
     }
 

@@ -1,0 +1,36 @@
+platform :ios, '10.3'
+use_frameworks!
+
+RX_TRACE_RESOURCES = false 
+
+def rx_SwiftPods
+    pod 'RxSwift', '~> 3.4'
+    pod 'RxCocoa', '~> 3.4'
+end
+
+target 'FlickrBrowser' do
+
+    rx_SwiftPods
+
+end
+
+
+target 'FlickrBrowserTests' do
+
+    rx_SwiftPods
+
+end
+
+post_install do |installer|
+
+    installer.pods_project.targets.each do |target|
+        if target.name == 'RxSwift'
+            target.build_configurations.each do |config|
+                if config.name == 'Debug' and RX_TRACE_RESOURCES
+                config.build_settings['OTHER_SWIFT_FLAGS'] ||= ['-D','TRACE_RESOURCES']
+                end
+            end
+        end
+    end
+end
+

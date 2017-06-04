@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		30D3E1222B8AE071A546B5DB /* Pods_FlickrBrowser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C599ACF80A01AFFEA2D4CEB3 /* Pods_FlickrBrowser.framework */; };
 		32144FC21EE48DE100AD6104 /* Dictionary+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32144FC11EE48DE100AD6104 /* Dictionary+Extensions.swift */; };
-		3271C3501EE425C6009CC330 /* FlickrAPI+rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3271C34F1EE425C6009CC330 /* FlickrAPI+rx.swift */; };
-		3271C3531EE45058009CC330 /* ApplicationConfiguration+rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3271C3521EE45058009CC330 /* ApplicationConfiguration+rx.swift */; };
 		321FC1F01EE139020011C9A2 /* LoadingSpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321FC1EE1EE139020011C9A2 /* LoadingSpinnerView.swift */; };
 		321FC1F11EE139020011C9A2 /* LoadingSpinnerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 321FC1EF1EE139020011C9A2 /* LoadingSpinnerView.xib */; };
+		3271C3501EE425C6009CC330 /* FlickrAPI+rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3271C34F1EE425C6009CC330 /* FlickrAPI+rx.swift */; };
+		3271C3531EE45058009CC330 /* ApplicationConfiguration+rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3271C3521EE45058009CC330 /* ApplicationConfiguration+rx.swift */; };
 		32D357951EE118D500573309 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32D357931EE118D500573309 /* Main.storyboard */; };
 		32D357971EE118D500573309 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32D357961EE118D500573309 /* Assets.xcassets */; };
 		32D3579A1EE118D500573309 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32D357981EE118D500573309 /* LaunchScreen.storyboard */; };
@@ -60,11 +60,11 @@
 /* Begin PBXFileReference section */
 		1994A403B09C6329A8470271 /* Pods-FlickrBrowser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickrBrowser.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlickrBrowser/Pods-FlickrBrowser.release.xcconfig"; sourceTree = "<group>"; };
 		32144FC11EE48DE100AD6104 /* Dictionary+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extensions.swift"; sourceTree = "<group>"; };
+		321FC1EE1EE139020011C9A2 /* LoadingSpinnerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingSpinnerView.swift; sourceTree = "<group>"; };
+		321FC1EF1EE139020011C9A2 /* LoadingSpinnerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingSpinnerView.xib; sourceTree = "<group>"; };
 		3271C34F1EE425C6009CC330 /* FlickrAPI+rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FlickrAPI+rx.swift"; sourceTree = "<group>"; };
 		3271C3511EE42860009CC330 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		3271C3521EE45058009CC330 /* ApplicationConfiguration+rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ApplicationConfiguration+rx.swift"; sourceTree = "<group>"; };
-		321FC1EE1EE139020011C9A2 /* LoadingSpinnerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingSpinnerView.swift; sourceTree = "<group>"; };
-		321FC1EF1EE139020011C9A2 /* LoadingSpinnerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingSpinnerView.xib; sourceTree = "<group>"; };
 		32D3578C1EE118D500573309 /* FlickrBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickrBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32D357941EE118D500573309 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		32D357961EE118D500573309 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };

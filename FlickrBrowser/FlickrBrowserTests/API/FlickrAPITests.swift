@@ -22,14 +22,14 @@ class FlickrAPIConfigTests: XCTestCase {
                                         baseURL: baseURL)
     
         // execute
-        let result = config.createEndpointURL(servicePath: "service/path")
+        let result = config.createEndpointURL(service: .publicPhotos)
         
         // verify
         let components = URLComponents.init(url: result, resolvingAgainstBaseURL: false)
         XCTAssertEqual(components?.host, "api.flickr.com")
         XCTAssertEqual(components?.scheme, "https")
-        XCTAssertEqual(components?.path, "/services/feeds/service/path")
-        XCTAssertNil(components?.queryItems)
+        XCTAssertEqual(components?.path, "/services/feeds/photos_public.gne")
+        XCTAssertEqual(components?.queryItems?.count, 2)
     }
     
     func testCreateEndpointURL_WithQueryParams() {
@@ -41,15 +41,15 @@ class FlickrAPIConfigTests: XCTestCase {
                                         baseURL: baseURL)
         
         // execute
-        let result = config.createEndpointURL(servicePath: "service/path", queryParams:["key1":"value1",
+        let result = config.createEndpointURL(service: .publicPhotos, queryParams:["key1":"value1",
                                                                                         "key2":"value2"])
         
         // verify
         let components = URLComponents.init(url: result, resolvingAgainstBaseURL: false)
         XCTAssertEqual(components?.host, "api.flickr.com")
         XCTAssertEqual(components?.scheme, "https")
-        XCTAssertEqual(components?.path, "/services/feeds/service/path")
-        XCTAssertEqual(components?.queryItems?.count, 2)
+        XCTAssertEqual(components?.path, "/services/feeds/photos_public.gne")
+        XCTAssertEqual(components?.queryItems?.count, 4)
         
     }
 }

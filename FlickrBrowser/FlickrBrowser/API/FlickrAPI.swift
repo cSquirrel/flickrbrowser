@@ -20,16 +20,40 @@ struct FlickrAPIConfig {
     let networkExecutor: NetworkOperationsExecutor
     let baseURL: URL
     
-    public func createEndpointURL(servicePath: String, queryParams: [String:String]? = nil) -> URL {
+    enum Service : String{
+        case publicPhotos = "photos_public.gne"
+    }
+    
+    private var commonQueryParams: [String: String] {
+        
+        var result:[String:String] = [:]
+        result[Const.formatQueryParam] = Const.formatQueryValue
+        result[Const.callbackQueryParam] = Const.callbackQueryValue
+        return result
+    }
+    
+    private enum Const {
+        
+        static let formatQueryParam = "format"
+        static let formatQueryValue = "json"
+        static let callbackQueryParam = "nojsoncallback"
+        static let callbackQueryValue = "1"
+        
+    }
+    
+    public func createEndpointURL(service: Service, queryParams: [String:String]? = nil) -> URL {
         
         var result = URL(string:baseURL.absoluteString)!
-        result.appendPathComponent(servicePath)
-        if let query = queryParams {
-            let queryParamsString = query.map({ return "\($0)=\($1)" }).joined(separator: "&")
-            var components = URLComponents(url: result, resolvingAgainstBaseURL: true)!
-            components.query = queryParamsString
-            result = components.url!
-        }
+        result.appendPathComponent(service.rawValue)
+        
+        let queryParamsString = commonQueryParams
+            .merge(withDictionary: queryParams)
+            .map({ return "\($0)=\($1)" })
+            .joined(separator: "&")
+        
+        var components = URLComponents(url: result, resolvingAgainstBaseURL: true)!
+        components.query = queryParamsString
+        result = components.url!
         return result
     }
     
@@ -86,18 +110,8 @@ public struct PublicPhotosAPIQuery {
 
 // MARK: --
 public class FlickrAPI: NSObject {
-
-    enum Const {
-        
-        static let formatQueryParam = "format"
-        static let formatQueryValue = "json"
-        static let callbackQueryParam = "nojsoncallback"
-        static let callbackQueryValue = "1"
-        static let endpointPublicPhotos = "photos_public.gne"
-        
-    }
     
-    private let config: FlickrAPIConfig
+    let config: FlickrAPIConfig
     
     init(_ c: FlickrAPIConfig) {
         
@@ -128,9 +142,7 @@ public class FlickrAPI: NSObject {
         }
         
         var queryParams = query.queryParams
-        queryParams[Const.formatQueryParam] = Const.formatQueryValue
-        queryParams[Const.callbackQueryParam] = Const.callbackQueryValue
-        let endpointURL = config.createEndpointURL(servicePath: Const.endpointPublicPhotos, queryParams: queryParams)
+        let endpointURL = config.createEndpointURL(service: .publicPhotos, queryParams: queryParams)
         let getProductsOp = config.networkProvider.createGETOperation(url: endpointURL, operationResult: result)
         config.networkExecutor.execute(operation: getProductsOp)
         

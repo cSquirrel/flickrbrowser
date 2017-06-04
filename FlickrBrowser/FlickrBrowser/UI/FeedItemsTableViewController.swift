@@ -21,6 +21,7 @@ class FeedItemsTableViewController: UITableViewController {
     
     var flickrFeed: Variable<[FlickFeedItemViewModel]> = Variable([])
     private let disposeBag = DisposeBag()
+    fileprivate let spinnerView = LoadingSpinnerView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +63,8 @@ class FeedItemsTableViewController: UITableViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
+        spinnerView.show(inView: self.view)
         DispatchQueue.global(qos: .default).async { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.loadFeed()
@@ -102,6 +105,7 @@ class FeedItemsTableViewController: UITableViewController {
             .observeOn(MainScheduler.asyncInstance)
             .subscribe { [weak self] event in
                 self?.refreshControl?.endRefreshing()
+                self?.spinnerView.hide()
             }
             .disposed(by: disposeBag)
     }

@@ -148,7 +148,7 @@ public class FlickrAPI: NSObject {
             }
         }
         
-        var queryParams = query.queryParams
+        let queryParams = query.queryParams
         let endpointURL = config.createEndpointURL(service: .publicPhotos, queryParams: queryParams)
         let getProductsOp = config.networkProvider.createGETOperation(url: endpointURL, operationResult: result)
         config.networkExecutor.execute(operation: getProductsOp)

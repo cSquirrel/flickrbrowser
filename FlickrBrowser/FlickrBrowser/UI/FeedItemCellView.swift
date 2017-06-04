@@ -24,23 +24,22 @@ class FeedItemCellView: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func load(item: FlickFeedItemViewModel, imagesProvider: ImagesProvider) {
+    func load(item: FlickFeedItemViewModel, imagesProvider: RxImagesProvider) {
         
         self.feedItem = item
         
         item.titleText.bind(to: title.rx.text).disposed(by:disposeBag)
         item.dateText.bind(to: date.rx.text).disposed(by:disposeBag)
         
-        
-        imagesProvider(try! item.imageURL.value()) {(image: UIImage?) in
-            DispatchQueue.main.async {
-                // seems like the feed serves small scale images
-                // if the images would be high res the scaling here would be
-                // more beneficial by reducing the memory footprint
+
+        imagesProvider(try! item.imageURL.value())
+            .observeOn(MainScheduler.asyncInstance)
+            .subscribe(onNext:{
+                image in
                 self.photoImageView.setImage(image)
                 self.photoImageView.setNeedsLayout()
-            }
-        }
+            })
+            .disposed(by: disposeBag)
 
     }
 

@@ -17,8 +17,13 @@ typealias ImagesProvider = (_ url: URL?, _ completion: @escaping (UIImage?) -> V
 
 class ApplicationConfiguration: NSObject {
     
+    var imagesProvider: ImagesProvider!
+    
     private(set) var apiAccess: FlickrAPI!
-    private(set) var imagesProvider: ImagesProvider!
+    
+    fileprivate var networkProvider: DefaultServicesProvider!
+    fileprivate var networkExecutor: DefaultNetworkOperationsExecutor!
+    
     
     override func awakeFromNib() {
         createApiAccess()
@@ -26,11 +31,11 @@ class ApplicationConfiguration: NSObject {
     
     fileprivate func createApiAccess() {
         
-        let networkProvider = DefaultServicesProvider()
+        networkProvider = DefaultServicesProvider()
         // NOTE: See my comment on the properties
         networkProvider.imageCache = NSCache<NSURL, UIImage>()
         networkProvider.jsonCache = NSCache<NSURL, NSData>()
-        let networkExecutor = DefaultNetworkOperationsExecutor(configuration: .default)
+        networkExecutor = DefaultNetworkOperationsExecutor(configuration: .default)
         
         // These values are hardcoded here but should be provided from an external configuration file
         let baseURL = URL(string:"https://api.flickr.com/services/feeds/")!
@@ -40,10 +45,14 @@ class ApplicationConfiguration: NSObject {
                                            baseURL: baseURL)
         apiAccess = FlickrAPI(apiConfig)
         
-        imagesProvider = { (url: URL?, completion: @escaping (UIImage?) -> Void) -> () in
-            guard let urlToDownload = url else { completion(nil); return }
-            let fetchImageOperation = networkProvider.fetchImage(url: urlToDownload, completion: completion)
-            networkExecutor.execute(operation: fetchImageOperation)
+        imagesProvider = { [weak self] (url: URL?, completion: @escaping (UIImage?) -> Void) -> () in
+            
+            guard
+                let strongSelf = self,
+                let urlToDownload = url else { completion(nil); return }
+            
+            let fetchImageOperation = strongSelf.networkProvider.fetchImage(url: urlToDownload, completion: completion)
+            strongSelf.networkExecutor.execute(operation: fetchImageOperation)
         }
     }
 }

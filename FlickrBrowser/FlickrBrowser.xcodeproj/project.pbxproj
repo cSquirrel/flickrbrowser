@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		30D3E1222B8AE071A546B5DB /* Pods_FlickrBrowser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C599ACF80A01AFFEA2D4CEB3 /* Pods_FlickrBrowser.framework */; };
+		32144FC21EE48DE100AD6104 /* Dictionary+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32144FC11EE48DE100AD6104 /* Dictionary+Extensions.swift */; };
 		3271C3501EE425C6009CC330 /* FlickrAPI+rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3271C34F1EE425C6009CC330 /* FlickrAPI+rx.swift */; };
 		3271C3531EE45058009CC330 /* ApplicationConfiguration+rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3271C3521EE45058009CC330 /* ApplicationConfiguration+rx.swift */; };
 		32D357951EE118D500573309 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32D357931EE118D500573309 /* Main.storyboard */; };
@@ -56,6 +57,7 @@
 
 /* Begin PBXFileReference section */
 		1994A403B09C6329A8470271 /* Pods-FlickrBrowser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickrBrowser.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlickrBrowser/Pods-FlickrBrowser.release.xcconfig"; sourceTree = "<group>"; };
+		32144FC11EE48DE100AD6104 /* Dictionary+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extensions.swift"; sourceTree = "<group>"; };
 		3271C34F1EE425C6009CC330 /* FlickrAPI+rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FlickrAPI+rx.swift"; sourceTree = "<group>"; };
 		3271C3511EE42860009CC330 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		3271C3521EE45058009CC330 /* ApplicationConfiguration+rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ApplicationConfiguration+rx.swift"; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 				3271C3521EE45058009CC330 /* ApplicationConfiguration+rx.swift */,
 				32D357DB1EE11BD400573309 /* AppDelegate.swift */,
 				32D357EA1EE11CA900573309 /* UIImageView+Extensions.swift */,
+				32144FC11EE48DE100AD6104 /* Dictionary+Extensions.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -512,6 +515,7 @@
 			files = (
 				32D357DE1EE11BD400573309 /* AppDelegate.swift in Sources */,
 				3271C3531EE45058009CC330 /* ApplicationConfiguration+rx.swift in Sources */,
+				32144FC21EE48DE100AD6104 /* Dictionary+Extensions.swift in Sources */,
 				32D357C11EE1198700573309 /* DefaultServicesProvider.swift in Sources */,
 				32D357E81EE11C7F00573309 /* FlickFeedViewModel.swift in Sources */,
 				3271C3501EE425C6009CC330 /* FlickrAPI+rx.swift in Sources */,

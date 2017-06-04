@@ -8,6 +8,13 @@
 
 import UIKit
 
+enum FlickrAPIError: Error {
+    
+    case unknownError
+    case jsonDeserialisationError
+    
+}
+
 /**
  *
  * See: https://www.flickr.com/services/feeds/docs/photos_public
